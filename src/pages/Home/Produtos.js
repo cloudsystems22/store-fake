@@ -10,6 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Api from '../../services/FakeStoreApi';
+import Implement from '../../services/repositories/Produtos'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -41,9 +42,9 @@ export default function Produtos() {
   const [products, setProducts ] = useState([{}]);
   useEffect(() => {
     const getAllProducts = async ()=> {
-        const response = await Api.get('/products?limit=5');
-        console.log(response.data);
-        setProducts(response.data);
+        //const response = await Api.get('/products?limit=5');
+        const response = await Implement.listProducts();
+        setProducts(response);
     };
     getAllProducts();
 }, [products]);

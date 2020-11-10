@@ -6,4 +6,6 @@ const apiFakeStore = axios.create({
     baseURL: uri,
   });
 
+
+
 export default apiFakeStore;
