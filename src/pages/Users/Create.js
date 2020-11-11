@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+
+
+import * as AuthActions from '../../store/Auth/actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Create() {
+function Create({ Auth }) {
     const [spacing, setSpacing] = React.useState(10);
     const classes = useStyles();
 
@@ -73,3 +78,7 @@ export default function Create() {
     
   );
 }
+
+const mapStateToProps = (state) => ({Auth: state.Auth });
+
+export default connect(mapStateToProps)(Create);

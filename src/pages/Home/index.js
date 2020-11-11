@@ -3,10 +3,11 @@ import { Card } from '@material-ui/core';
 import './styles.css'
 import lojaImage from '../../assets/images/3858422.jpg'
 import Produtos from './Produtos'
-
+import { connect } from "react-redux";
 // import { Container } from './styles';
 
-const Home = () => {
+const Home = ({Auth}) => {
+    console.log(Auth);
   return (
       <>
         <div>
@@ -24,4 +25,6 @@ const Home = () => {
     );
 }
 
-export default Home;
+const mapStateToProps = (state) => ({Auth: state.Auth});
+
+export default connect(mapStateToProps, {})(Home);
