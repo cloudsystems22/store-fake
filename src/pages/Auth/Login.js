@@ -5,15 +5,24 @@ import { useHistory } from "react-router-dom";
 
 import * as AuthActions from '../../store/Auth/actions';
 
+import Implement from '../../services/repositories/Auth'
+
 
 function Login({ Auth, saveLogin }){
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    //const [token, setToken] = useState("");
     const history = useHistory();
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
       event.preventDefault();
-      saveLogin("eueueueuruuttttttu");
+      const user = {
+        email,
+        password,
+      }
+      const response = await Implement.Login(user);
+      saveLogin(response);
+
       history.push('/')
       
     }

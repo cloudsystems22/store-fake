@@ -100,6 +100,7 @@ function Template(props){
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              href={'/auth'}
             >
               <AccountCircle />
             </IconButton>

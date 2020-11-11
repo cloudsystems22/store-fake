@@ -2,7 +2,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Create, Update, List } from './pages/Users'
 import { Create as CreateProd } from './pages/Products'
 import { Login } from './pages/Auth';
-import Home from './pages/Home/index'
+import Home from './pages/Home/index';
+
+import PrivateRoute from "./Private/index"
 
 function Routes() {
   return (
@@ -13,7 +15,7 @@ function Routes() {
         <Route path="/users/create" exact component={Create} />
         <Route path="/users/:id/update" exact component={Update} />
         {/* Rotas de produtos */}
-        <Route path="/produtos/create" exact component={CreateProd} />
+        <PrivateRoute path="/produtos/create" exact component={CreateProd} />
         {/* Autenticação */}
         <Route path="/auth" exact component={Login} />
       </Switch>
